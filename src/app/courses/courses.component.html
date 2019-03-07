@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <li class="list-group-item" routerLinkActive="active" [routerLink]="['/courses/list']">List Courses</li>
+        <li class="list-group-item" routerLinkActive="active" [routerLink]="['add']"> Add Course (Template Form)</li>
+        <li class="list-group-item" routerLinkActive="active" [routerLink]="['rform']"> Add Course (Reactive Form) </li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+  

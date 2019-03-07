@@ -1,0 +1,33 @@
+<div class="container">
+  <!--<h1>{{product | format}}</h1>-->
+
+  <div class="row">
+      <div class="col-md-4" *ngFor="let course of courses | sort">
+        <app-child [course]="course" (cart)="addItemToCart($event)" (deleteCourse)="deleteCourse($event)"></app-child>
+    </div>
+    </div>
+  <!--<ul>
+    <li *ngFor="let course of courses" 
+        [style.backgroundColor]="course.currentBatch? 'green':'yellow'"
+        [class.expensive]="course.price > 10000">
+        {{course.name}} - Duration ({{course.duration}} days)</li>
+  </ul>-->
+  <div class="row">
+    <div class="col-md-4">
+      <!--<input type="text"
+        #courseName        
+        class="form-control" 
+        aria-describedby="helpId" 
+        placeholder="Enter a course"
+        (change)="submitCourse(courseName)">-->
+
+      <input type="text"
+        [(ngModel)]="newCourse"
+        class="form-control" 
+        aria-describedby="helpId" 
+        placeholder="Enter a course"
+        (change)="submitCourse()">
+    </div>
+  </div>
+  
+</div>

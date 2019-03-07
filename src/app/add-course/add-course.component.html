@@ -1,0 +1,81 @@
+<form #f="ngForm" (ngSubmit)="handleSubmit(f)" class="col-md-8">
+  <div class="form-group">
+    <label for="courseName">Name</label>
+    <input 
+        type="text" 
+        required 
+        minlength="5"
+        maxlength="8" 
+        class="form-control" 
+        name="courseName" 
+        id="courseName" 
+        #courseName="ngModel"
+        aria-describedby="courseName" 
+        placeholder="Course Name"
+        ngModel>
+  </div>
+  <div *ngIf="courseName.touched && !courseName.valid">
+      <span class="alert alert-danger" *ngIf="courseName.errors.required">name is required property</span>
+      <span class="alert alert-danger" *ngIf="courseName.errors.minlength">Min length is {{courseName.errors.minlength.requiredLength - courseName.errors.minlength.actualLength }}</span>
+   </div>
+  <div class="form-group">
+    <label for="duration">Duration</label>
+    <input 
+      type="text" 
+      minlength="1" 
+      maxlength="2" 
+      required 
+      class="form-control" 
+      name="duration" 
+      id="duration"
+      ngModel 
+      #duration ="ngModel"
+      aria-describedby="duration" 
+      placeholder="duration">
+  </div>
+  <div class="alert alert-danger" *ngIf="duration.touched && !duration.valid">
+      <span class="alert alert-danger" *ngIf="duration.errors.required">duration is required property</span>
+      <span class="alert alert-danger" *ngIf="duration.errors.minlength">duration length is {{courseName.errors.minlength.requiredLength - courseName.errors.minlength.actualLength }}</span>
+   </div>
+  
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input 
+        type="text"
+        required 
+        class="form-control"
+        name="price"
+        id="price"
+        aria-describedby="price"
+        placeholder="Price"
+        #price="ngModel"
+        ngModel>
+  </div>
+  <div class="alert alert-danger" *ngIf="price.touched && !price.valid">
+      <span class="alert alert-danger" *ngIf="price.errors.required">price is required property</span>
+   </div>
+
+   <div class="form-group">
+        <label for="Phone">Phone Number</label>
+        <input 
+            type="text"
+            required 
+            class="form-control"
+            name="phoneNumber"
+            id="phoneNumber"
+            aria-describedby="phoneNumber"
+            placeholder="Phone Number"
+            #phoneNumber="ngModel"
+            ngModel
+            [appPhoneformatter]='45'>
+      </div>
+    
+  
+   <button 
+      type="submit" 
+      [disabled]="!f.valid"
+      name="" 
+      id=""
+      class="btn btn-primary" 
+      btn-lg btn-block>Save</button>
+</form>

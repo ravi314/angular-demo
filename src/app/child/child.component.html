@@ -1,0 +1,17 @@
+<div class="card ">
+  <div class="card-header">
+    {{test.name}}<span style="cursor:pointer" class="pull-right" (click)="removeCourse(test)"><i class="fa fa-trash" aria-hidden="true"></i></span>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">Name: {{test.name | uppercase}}</h4>
+    <p class="card-text">Duration: {{test.duration}}</p>
+    <p class="card-text">Current Batch: {{test.currentBatch}}</p>
+    <p class="card-text">Price: {{test.price | currency:'INR':true:'2.1-1'}}</p>
+    <p class="card-text">Rating: {{test.rating | number:'1.2-2' }}</p>
+    <p class="card-text">Start-Date: {{test.startDate  | date:'mediumDate'}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    <!--<button class="btn" [class.btn-primary]="buttonState" [class.btn-warning]="!buttonState" (click)="addItems(test)">{{cartText}}</button>-->
+    <a name="" id="" class="btn btn-primary" [routerLink]="['/courses', test.id]" role="button">Details</a>
+  </div>
+</div>

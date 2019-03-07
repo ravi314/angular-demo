@@ -1,0 +1,43 @@
+<!--<div  *ngIf="user === 'Admin'">
+  <span class="badge badge-pill badge-primary">Admin</span>
+</div>
+
+<div *ngIf="user !== 'Admin'">
+  <span class="badge badge-pill badge-secondary">User</span>
+</div> -->
+
+<!--<ng-container *ngIf="user==='Admin'; else elseTemplate">
+    <span class="badge badge-pill badge-primary">Admin</span>
+</ng-container>
+<ng-template #elseTemplate>
+    <span class="badge badge-pill badge-success">Normal User</span>
+</ng-template>-->
+
+<div [ngSwitch]="user.role">
+  <div *ngSwitchCase="'Admin'">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title"><button class="btn">
+        <span class="badge badge-primary">{{user.role}}</span>
+        </button>{{user.name}}</h4>
+        <p class="card-text">{{user.dept}}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngSwitchCase="'Privilige'">
+      <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{user.name}}</h4>
+            <p class="card-text">{{user.dept}}</p>
+            </div>
+      </div>
+  </div>
+  <div *ngSwitchDefault>
+      <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">{{user.name}}</h4>
+            <p class="card-text">{{user.dept}}</p>
+            </div>
+      </div>
+  </div>
+</div>
